@@ -1,0 +1,14 @@
+
+services:
+  - type: cron
+    name: monique-system-audit
+    runtime: python
+    plan: standard
+    schedule: "0 * * * *"
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python monique_full_system_audit.py"
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: MONIQUE_CHAT_ID
+        sync: false
